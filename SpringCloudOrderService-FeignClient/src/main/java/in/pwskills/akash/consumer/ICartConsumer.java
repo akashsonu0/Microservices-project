@@ -13,7 +13,7 @@ import in.pwskills.akash.response.Cart;
 public interface ICartConsumer {
 	
 	@GetMapping("/v1/api/cart/show")
-	public ResponseEntity<String>getCardInfo();
+	public ResponseEntity<String>getCartInfo();
 
 	@GetMapping("/v1/api/cart/find/{id}")
 	public ResponseEntity<Cart>getCartById(
