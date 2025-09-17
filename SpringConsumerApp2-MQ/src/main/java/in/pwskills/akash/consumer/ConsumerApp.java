@@ -8,7 +8,7 @@ public class ConsumerApp {
 	
 	@JmsListener(destination = "${my.app.desti-name}")
 	public void readDate(String data) {
-		System.out.println("Consumer#1 ::"+data);
+		System.out.println("Consumer#2 ::"+data);
 	}
 
 }
