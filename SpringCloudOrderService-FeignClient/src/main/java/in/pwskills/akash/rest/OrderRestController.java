@@ -1,6 +1,7 @@
 package in.pwskills.akash.rest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -12,12 +13,12 @@ import org.springframework.web.bind.annotation.RestController;
 import in.pwskills.akash.consumer.ICartConsumer;
 import in.pwskills.akash.response.Cart;
 
-
-
-
 @RestController
 @RequestMapping("/v1/api/order")
 public class OrderRestController {
+	
+	@Value("${server.port}")
+	private String portNo;
 
 	/*
 	 * METHOD : GET 
@@ -48,9 +49,9 @@ public class OrderRestController {
 	public ResponseEntity<String> fetchOrderWithCard(
 			@PathVariable Integer id)
 	{
-		Cart cob = null;
+		String cob = null;
 		cob=consumer.getCartById(id).getBody();
-		return ResponseEntity.ok("ORDER PLACED WITH => "+cob);
+		return ResponseEntity.ok("PORT NO OF ORDER IS :: "+portNo + " ORDER PLACED WITH => "+ cob);
 	}
 	
 	/*
